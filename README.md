@@ -24,51 +24,22 @@ Database: MongoDB (NoSQL Database) \& MongoDB Compass for UI inspection
 
 
 
+#### Project Overview & End-to-End Flow
 
-
-#### Project Overview \& End-to-End Flow
-
-
-
-+-------------------+      Analog      +-------------------+
-
-|  NTC Thermistor   | -------------->  |                   |
-
-|   \& MQ-2 Sensor   |      Inputs      |     ESP32-C3      |
-
-+-------------------+                  |    (ESP-IDF)      |
-
-&#x20;                                      |                   |
-
-&#x20;                                      +---------+---------+
-
-&#x20;                                                |
-
-&#x20;                                                | Wi-Fi (JSON Payload)
-
-&#x20;                                                v
-
-+-------------------+                  +-------------------+
-
-|  MongoDB Compass  |                  |  Mosquitto MQTT   |
-
-|   (GUI Monitor)   |                  |      Broker       |
-
-+---------^---------+                  +---------+---------+
-
-&#x20;         |                                      |
-
-&#x20;         | Persistent                           | Subscribe
-
-&#x20;         | Storage                              v
-
-+---------+---------+                  +-------------------+
-
-| MongoDB Database  | <--------------- | Python Subscriber |
-
-|  (Local/Remote)   |  PyMongo Driver  |     (Backend)     |
-
-+-------------------+                  +-------------------+
+```text
+[NTC & MQ-2 Sensors]
+       │ (Analog Inputs)
+       ▼
+[ESP32-C3 Node (ESP-IDF)]
+       │ (Wi-Fi / JSON Payload)
+       ▼
+[Mosquitto MQTT Broker (Ubuntu Linux)]
+       │ (Topic Subscription)
+       ▼
+[Python Ingestion Backend]
+       │ (PyMongo Driver)
+       ▼
+[MongoDB NoSQL Database] ──► [MongoDB Compass (GUI Monitoring)]
 
 
 
