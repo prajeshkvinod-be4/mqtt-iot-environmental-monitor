@@ -40,7 +40,7 @@ Database: MongoDB (NoSQL Database) \& MongoDB Compass for UI inspection
        │ (PyMongo Driver)
        ▼
 [MongoDB NoSQL Database] ──► [MongoDB Compass (GUI Monitoring)]
-
+```
 
 
 #### System Data Flow
